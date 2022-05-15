@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Agenda de Telefono</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <style>
+       div{
+           margin-left: 50px;
+           margin-top: 20px;
+       }
+   </style>
+</head>
+<body>
+<div class="contenedor">
+<h1>Agenda de Teléfono</h1>
+
+
+<hr></hr>
+   {% if registros %}
+   {% for registro in registros %}
+       <label><b>Contacto :</b> &nbsp;{{ registro.nombre }} {{ registro.apellido }}, &nbsp; {{ registro.telefono }} &nbsp;
+           &nbsp; <a href="{% url 'modificar' registro.ID %}">Modificar</a> &nbsp;
+           &nbsp; <a href="{% url 'eliminar' registro.ID %}">Eliminar</a></label>
+       <hr></hr>
+   {% endfor %}
+{% endif %}
+<a href="{% url 'insertar' %}" class="btn btn-primary">Añadir</a>
+</div>
+</body>
+</html>
